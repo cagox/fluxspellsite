@@ -1,0 +1,42 @@
+
+
+body {
+    background: url('../images/cube-844235_1920.jpg');
+    color: #00ff00;
+    font-family: monospace;
+	font-size: large;
+}
+
+.contentblock {
+    background: #101010;
+    min-height: 80em;
+}
+
+
+
+.page_header {
+    border-bottom: 5px solid #0310a5;
+    /*border-bottom-style: solid;*/
+}
+
+.page_footer {
+    border-top: 5px solid #0310a5;
+    /*border-bottom-style: solid;*/
+}
+
+
+.start-column {
+	padding-left: 1em;
+}
+
+
+a {
+	color: #00FF00;
+	weight: bold;
+	text-decoration: none;
+}
+
+div.spellbox {
+	border-style: double;
+	border-color: #00ff00;
+}
