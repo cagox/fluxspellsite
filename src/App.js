@@ -15,7 +15,8 @@ class App extends React.Component {
     render() {
         let pageBody = <SpellIndex />;
         /*
-         *
+         * Eventually this will select an appropirate body element
+         * based on this.props.page.
          */
 
         return(

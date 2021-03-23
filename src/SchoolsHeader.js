@@ -9,6 +9,10 @@ class SchoolURL extends React.Component {
     }
 }
 
+/*
+ * TODO: Figure out the right way to handle links in a react app so that the page
+ *  only updates the parts that need to be updated.
+ */
 class SchoolsHeader extends React.Component {
     /*Lots of setup here.*/
 
