@@ -8,9 +8,23 @@ class App extends React.Component {
         super(props);
         this.state = {
             page: "indexPage",
-            header_title: "FluxRPG Spell List"
+            header_title: "FluxRPG Spell List",
+            apiroot: "http://localhost:8080/api"
         };
+
+        this.viewSchool = this.viewSchool.bind(this)
+
     }
+
+    viewSchool(id) {
+        this.setState(
+            {
+                page: "schoolPage",
+                school_id: id
+            });
+        console.log('Looking at Spell ID ', id.toString())
+    }
+
 
     render() {
         let pageBody = <SpellIndex />;
@@ -22,7 +36,7 @@ class App extends React.Component {
         return(
             <div className="container contentblock">
                 <PageTitle text={this.state.header_title} />
-                <SchoolsHeader />
+                <SchoolsHeader apiroot={this.state.apiroot} viewschool={this.viewschool}/>
                 {pageBody}
 
             </div>
