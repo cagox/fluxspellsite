@@ -4,8 +4,20 @@ import axios from 'axios';
 
 class SchoolURL extends React.Component {
     render(){
+        /*
         return(
             <span><a href="#"  >{this.props.name}</a>&nbsp;</span>
+        );
+         */
+
+        return(
+            <button className="link"><span>{this.props.name}&nbsp; </span></button>
+                /*
+                 * A click hander will be added to onClick that will accept this.props.school_id
+                 * It will then update the state of app so that page: is "showSchool" and
+                 * school_id: is this.props.school_id. That will then trigger the PageBody to
+                 * display the appropriate school.
+                 */
         );
     }
 }

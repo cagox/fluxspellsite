@@ -1,0 +1,20 @@
+button.link {
+    font-family: monospace;
+    font-size: 1em;
+    font-weight: normal;
+    text-align: left;
+    color: #00FF00;
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+
+    -moz-user-select: text;
+    display:inline;
+    text-transform: capitalize;
+}
+
+form.link {
+    display: inline;
+}
