@@ -1,0 +1,3 @@
+* Currently I am using links in the SchoolsHeader element. These can apparently be turned into buttons that look
+  like links. This would make it easier to attach an onClick method to make changes to the state without reloading
+  the entire page.
