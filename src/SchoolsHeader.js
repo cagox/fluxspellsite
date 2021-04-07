@@ -11,7 +11,7 @@ class SchoolURL extends React.Component {
          */
 
         return(
-            <button className="link"><span>{this.props.name}&nbsp; </span></button>
+            <button className="link" onClick={this.props.updateState({page: "schoolView", school_id: this.props.school_id})}><span>{this.props.name}&nbsp; </span></button>
                 /*
                  * A click hander will be added to onClick that will accept this.props.school_id
                  * It will then update the state of app so that page: is "showSchool" and
@@ -32,11 +32,10 @@ class SchoolsHeader extends React.Component {
         this.state = {
             schools: null
         };
-        console.log('Does this exist?');
         /*Fix this host in production*/
         axios.get(this.props.apiroot+"/schools/").then((schoollist) => {
             this.setState({
-                    schools: schoollist.data.map((item) => <SchoolURL school_id={item.school_id} name={item.name} apiroot={this.props.apiroot} viewschool={this.props.viewschool}/>
+                    schools: schoollist.data.map((item) => <SchoolURL updateState={this.props.updateState} key={item.school_id}  school_id={item.school_id} name={item.name} apiroot={this.props.apiroot} viewschool={this.props.viewschool}/>
                     ),
             }
             )
@@ -45,7 +44,6 @@ class SchoolsHeader extends React.Component {
 
     render(){
         if(this.state.schools === null) {
-            console.log('It is null.')
             return(
                 <div className="row page_header"></div>
             );
