@@ -1,0 +1,10 @@
+* Currently, pageBody is a value in <App /> that is being set to a specific value based on the page type.
+  Realistically it is just a stub that will do that eventually, but maybe that is the wrong direction overall.
+  pageBody could become <PageBody />, and be passed props based on the state of App. The state would be mannaged
+  at the top level with callbacks to handle changes that need to be made to the state.
+
+* Currently I am using links in the SchoolsHeader element. These can apparently be turned into buttons that look
+  like links. This would make it easier to attach an onClick method to make changes to the state without reloading
+  the entire page.
+
+
