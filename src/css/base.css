@@ -13,10 +13,14 @@ body {
 }
 
 
-
 .page_header {
     border-bottom: 5px solid #0310a5;
     /*border-bottom-style: solid;*/
+}
+
+.header_title {
+  font-size: 1.5em;
+  text-align: center;
 }
 
 .page_footer {
