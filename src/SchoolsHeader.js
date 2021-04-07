@@ -11,13 +11,7 @@ class SchoolURL extends React.Component {
          */
 
         return(
-            <button className="link" onClick={this.props.updateState({page: "schoolView", school_id: this.props.school_id})}><span>{this.props.name}&nbsp; </span></button>
-                /*
-                 * A click hander will be added to onClick that will accept this.props.school_id
-                 * It will then update the state of app so that page: is "showSchool" and
-                 * school_id: is this.props.school_id. That will then trigger the PageBody to
-                 * display the appropriate school.
-                 */
+            <button className="link" onClick={() => this.props.updateState({page: "schoolView", school_id: this.props.school_id})}><span>{this.props.name}&nbsp; </span></button>
         );
     }
 }
