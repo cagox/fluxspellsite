@@ -4,14 +4,10 @@ import axios from 'axios';
 
 class SchoolURL extends React.Component {
     render(){
-        /*
-        return(
-            <span><a href="#"  >{this.props.name}</a>&nbsp;</span>
-        );
-         */
+        let new_title = "School of " + this.props.name;
 
         return(
-            <button className="link" onClick={() => this.props.updateState({page: "schoolView", school_id: this.props.school_id})}><span>{this.props.name}&nbsp; </span></button>
+            <button className="link" onClick={() => this.props.updateState({page: "schoolView", school_id: this.props.school_id, header_title: new_title})}><span>{this.props.name}&nbsp; </span></button>
         );
     }
 }
