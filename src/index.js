@@ -7,7 +7,9 @@ import './css/base.css';
 
 ReactDOM.render(
     <div>
+        /* Possibly add header here */
         <App />
+        /* Add footer here */
     </div>
     ,
     document.getElementById('root')
