@@ -4,7 +4,7 @@ body {
     background: url('../images/cube-844235_1920.jpg');
     color: #00ff00;
     font-family: monospace;
-	font-size: large;
+    font-size: large;
 }
 
 .contentblock {
@@ -15,13 +15,17 @@ body {
 
 .page_header {
     border-bottom: 5px solid #0310a5;
-    /*border-bottom-style: solid;*/
 }
 
 .header_title {
-  font-size: 1.5em;
-  text-align: center;
+    font-size: 1.5em;
 }
+
+.center-text {
+    text-align: center;
+}
+
+
 
 .page_footer {
     border-top: 5px solid #0310a5;
@@ -30,17 +34,20 @@ body {
 
 
 .start-column {
-	padding-left: 1em;
+    padding-left: 15px;
 }
 
 
 a {
-	color: #00FF00;
-	weight: bold;
-	text-decoration: none;
+    color: #00FF00;
+    weight: bold;
+    text-decoration: none;
 }
 
+
+
 div.spellbox {
-	border-style: double;
-	border-color: #00ff00;
+    border-style: solid;
+    border-color: #00AA00;
+    padding: 1em;
 }

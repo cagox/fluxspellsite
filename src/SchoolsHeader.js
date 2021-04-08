@@ -22,11 +22,10 @@ class SchoolsHeader extends React.Component {
         this.state = {
             schools: null
         };
-        /*Fix this host in production*/
+
         axios.get(this.props.apiroot+"/schools/").then((schoollist) => {
             this.setState({
-                    schools: schoollist.data.map((item) => <SchoolURL updateState={this.props.updateState} key={item.school_id}  school_id={item.school_id} name={item.name} apiroot={this.props.apiroot} viewschool={this.props.viewschool}/>
-                    ),
+                    schools: schoollist.data
             }
             )
         });
@@ -43,7 +42,7 @@ class SchoolsHeader extends React.Component {
             <div className="row page_header">
                 <center>
                     <a href="/">Top</a>&nbsp;
-                    {this.state.schools}
+                    {this.state.schools.map((item) => <SchoolURL updateState={this.props.updateState} key={item.school_id}  school_id={item.school_id} name={item.name} apiroot={this.props.apiroot} viewschool={this.props.viewschool}/>)}
                 </center>
             </div>
         );
@@ -60,3 +59,4 @@ class SchoolsHeader extends React.Component {
 
 
 export default SchoolsHeader;
+

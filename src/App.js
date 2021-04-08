@@ -1,6 +1,9 @@
 import React from 'react';
 import PageTitle from './PageTitle.js';
 import SchoolsHeader from './SchoolsHeader.js';
+import SpellList from './SpellList.js'
+import SchoolView from './SchoolView.js'
+
 
 class App extends React.Component {
     constructor(props) {
@@ -15,38 +18,10 @@ class App extends React.Component {
             apiroot: "http://localhost:8080/api"
         };
 
-        this.viewSchool = this.viewSchool.bind(this)
-        this.viewSpell = this.viewSpell.bind(this)
-        this.viewType = this.viewType.bind(this)
-
         this.updateState = this.updateState.bind(this)
 
     }
 
-    viewSchool(id) {
-        this.setState(
-            {
-                page: "schoolView",
-                school_id: id
-            });
-        console.log('Looking at Spell ID ', id.toString())
-    }
-
-    viewSpell(id) {
-        this.setState(
-            {
-                page: "spellView",
-                spell_id: id
-            });
-    }
-
-    viewType(id) {
-        this.setState(
-            {
-                page: "typeView",
-                type_id: id
-            });
-    }
 
     updateState(args)  {
         console.log('This was called ');
@@ -54,18 +29,38 @@ class App extends React.Component {
        this.setState(args)
     }
 
-    getPageBody(page) {
-        if (page === "indexPage" ) {
+
+    render() {
+
+        return(
+            <div className="container contentblock">
+                <PageTitle text={this.state.header_title} />
+                <SchoolsHeader apiroot={this.state.apiroot} viewschool={this.viewschool} updateState={this.updateState}/>
+                {/* <PageBody updateState={this.updateState} page={this.state.page} school_id={this.state.school_id} spell_id={this.state.spell_id} type_id={this.state.type_id} page_index={this.props.page_index} apiroot={this.state.apiroot} /> */}
+                <PageBody page={this.state.page} apiroot={this.state.apiroot} school_id={this.state.school_id} spell_id={this.state.spell_id} type_id={this.state.type_id} page_index={this.state.page_index} updateState={this.updateState}/>
+                {/*Footer may go here, or in the index?*/}
+            </div>
+        );
+    }
+
+
+}
+
+class PageBody extends React.Component {
+
+
+    render() {
+        if (this.props.page === "indexPage" ) {
             return(
-                <div>This is the index.</div>
+                <SpellList apiroot={this.props.apiroot} school_id="all" updateState={this.props.updateState} />
                 /*<IndexView pageIndex={this.props.page_index} />*/
             );
         }
 
-        /*
-            if page === "schoolView"
-            return <SchoolView school_id={this.props.school_id} pageIndex={this.props.page_index} />
-         */
+        if (this.props.page === "schoolView") {
+            return (<SchoolView school_id={this.props.school_id} pageIndex={this.props.page_index} apiroot={this.props.apiroot} updateState={this.props.updateState} />);
+        }
+
 
         /*
             if page === "typeView"
@@ -84,20 +79,10 @@ class App extends React.Component {
     }
 
 
-    render() {
-
-        return(
-            <div className="container contentblock">
-                <PageTitle text={this.state.header_title} />
-                <SchoolsHeader apiroot={this.state.apiroot} viewschool={this.viewschool} updateState={this.updateState}/>
-                {/* <PageBody updateState={this.updateState} page={this.state.page} school_id={this.state.school_id} spell_id={this.state.spell_id} type_id={this.state.type_id} page_index={this.props.page_index} apiroot={this.state.apiroot} /> */}
-                {this.getPageBody(this.state.page)}
-                {/*Footer may go here, or in the index?*/}
-            </div>
-        );
-    }
-
 
 }
+
+
+
 
 export default App;
