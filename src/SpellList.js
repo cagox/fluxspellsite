@@ -50,7 +50,7 @@ class SpellList extends React.Component {
         return(
             this.state.spells.map(
                 (item) => (
-                    <div className={"spells-grid"}>
+                    <div className="spells-grid">
                         <div className="spellname"><SpellURL spell_id={item.spell_id} name={item.name} updateState={this.props.updateState} /></div>
                         <div className="spellschools">{item.schools.map((school) => (<span>{school.name}&nbsp; </span>))}</div>
                         <div className="spelltypes">TYPES</div>
@@ -67,7 +67,7 @@ class SpellList extends React.Component {
         return(
             <span>
                 {/*Spell List Header*/}
-                <div className="spells-grid">
+                <div className="spells-grid page_header">
                     <div className="spellname">Spell Name</div>
                     <div className="spellschools">Schools</div>
                     <div className="spelltypes">Types</div>

@@ -47,12 +47,12 @@
 .spells-grid {
     display: grid;
     grid-gap: 10px;
-    padding: 10px;
+    padding: 5px;
     background-color: #101010;
     text-align: left;
     word-wrap: break-word;
     grid-template-areas:
-        'spellname spellname spellname spellschools spellschools spelltypes spelltypes spellsummary spellsummary spellsummary spellsummary spellsummary spellsummary'
+        'auto auto auto auto auto auto auto auto auto auto auto auto'
 
 }
 
@@ -60,22 +60,33 @@
 .spellname {
     grid-area: spellname;
     word-wrap: break-word;
+    column-width: 15em;
+
     grid-column-start: 1;
     grid-column-end: 4;
 }
 
 .spellschools {
     grid-area: spellschools;
+    word-wrap: break-word;
     grid-column-start: 4;
     grid-column-end: 6;
+    text-align: left;
+    column-width: 12em;
 }
 
 .spelltypes {
     grid-area: spelltypes;
+    word-wrap: break-word;
     grid-column-start: 6;
     grid-column-end: 8;
+    column-width: 10em;
 }
 
 .spellsummary {
     grid-area: spellsummary;
+    word-wrap: break-word;
+    grid-column-start: 8;
+    grid-column-end: 13;
+    column-width: 20em;
 }
