@@ -1,0 +1,81 @@
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    margin: auto;
+    padding: 0px; /*0 20px;*/
+    box-sizing: border-box;
+}
+
+.contentblock {
+    background-color: #AAAAAA;
+    min-height: 80em;
+}
+
+
+
+/*
+ * First we need the basic header grid.
+ * This will include the the page title and the list of schools.
+*/
+
+.header-grid {
+    display: grid;
+    grid-gap: 10px;
+    padding: 10px;
+    background-color: #AAAAAA;
+    grid-template-areas:
+        'header header header header header header header header header header header header'
+        'schools schools schools schools schools schools schools schools schools schools schools schools'
+}
+
+.header {
+    grid-area: header;
+    font-height: 1.5em;
+    text-align: center;
+    background-color: #101010;
+}
+
+.schools {
+    grid-area: schools;
+    font-height: 1.2em;
+    text-align: center;
+    background-color: #101010;
+    padding: 5px;
+}
+
+.spells-grid {
+    display: grid;
+    grid-gap: 10px;
+    padding: 10px;
+    background-color: #101010;
+    text-align: left;
+    word-wrap: break-word;
+    grid-template-areas:
+        'spellname spellname spellname spellschools spellschools spelltypes spelltypes spellsummary spellsummary spellsummary spellsummary spellsummary spellsummary'
+
+}
+
+
+.spellname {
+    grid-area: spellname;
+    word-wrap: break-word;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.spellschools {
+    grid-area: spellschools;
+    grid-column-start: 4;
+    grid-column-end: 6;
+}
+
+.spelltypes {
+    grid-area: spelltypes;
+    grid-column-start: 6;
+    grid-column-end: 8;
+}
+
+.spellsummary {
+    grid-area: spellsummary;
+}

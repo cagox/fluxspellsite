@@ -34,16 +34,14 @@ class SchoolsHeader extends React.Component {
     render(){
         if(this.state.schools === null) {
             return(
-                <div className="row page_header"></div>
+                <div className="schools"><a href="/">Top</a>&nbsp;</div>
             );
         }
 
         return(
-            <div className="row page_header">
-                <center>
+            <div className="schools page_header">
                     <a href="/">Top</a>&nbsp;
                     {this.state.schools.map((item) => <SchoolURL updateState={this.props.updateState} key={item.school_id}  school_id={item.school_id} name={item.name} apiroot={this.props.apiroot} viewschool={this.props.viewschool}/>)}
-                </center>
             </div>
         );
 

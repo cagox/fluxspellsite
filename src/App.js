@@ -34,8 +34,10 @@ class App extends React.Component {
 
         return(
             <div className="container contentblock">
-                <PageTitle text={this.state.header_title} />
-                <SchoolsHeader apiroot={this.state.apiroot} viewschool={this.viewschool} updateState={this.updateState}/>
+                <div clasName="header-grid">
+                    <PageTitle text={this.state.header_title} />
+                    <SchoolsHeader apiroot={this.state.apiroot} viewschool={this.viewschool} updateState={this.updateState}/>
+                </div>
                 {/* <PageBody updateState={this.updateState} page={this.state.page} school_id={this.state.school_id} spell_id={this.state.spell_id} type_id={this.state.type_id} page_index={this.props.page_index} apiroot={this.state.apiroot} /> */}
                 <PageBody page={this.state.page} apiroot={this.state.apiroot} school_id={this.state.school_id} spell_id={this.state.spell_id} type_id={this.state.type_id} page_index={this.state.page_index} updateState={this.updateState}/>
                 {/*Footer may go here, or in the index?*/}

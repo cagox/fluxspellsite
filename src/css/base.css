@@ -1,15 +1,9 @@
 
-
 body {
     background: url('../images/cube-844235_1920.jpg');
     color: #00ff00;
     font-family: monospace;
     font-size: large;
-}
-
-.contentblock {
-    background: #101010;
-    min-height: 80em;
 }
 
 

@@ -6,7 +6,7 @@ class SpellURL extends React.Component {
         let new_title = "Spell: " + this.props.name;
 
         return(
-            <button className="link" onClick={() => this.props.updateState({page: "spellView", spell_id: this.props.spell_id, header_title: new_title})}><span>{this.props.name}&nbsp; </span></button>
+            <button className="link" onClick={() => this.props.updateState({page: "spellView", spell_id: this.props.spell_id, header_title: new_title})}><span>{this.props.name}</span></button>
         );
     }
 }
@@ -50,10 +50,11 @@ class SpellList extends React.Component {
         return(
             this.state.spells.map(
                 (item) => (
-                    <div className="row">
-                        <div className="three columns start-column"><SpellURL spell_id={item.spell_id} name={item.name} updateState={this.props.updateState} /></div>
-                        <div className="three columns">{item.schools.map((school) => (<span>{school.name}&nbsp; </span>))}</div>
-                        <div className="six columns">{item.summary}</div>
+                    <div className={"spells-grid"}>
+                        <div className="spellname"><SpellURL spell_id={item.spell_id} name={item.name} updateState={this.props.updateState} /></div>
+                        <div className="spellschools">{item.schools.map((school) => (<span>{school.name}&nbsp; </span>))}</div>
+                        <div className="spelltypes">TYPES</div>
+                        <div className="spellsummary">{item.summary}</div>
                     </div>
                 )
             )
@@ -66,14 +67,15 @@ class SpellList extends React.Component {
         return(
             <span>
                 {/*Spell List Header*/}
-                <div className="row">&nbsp; </div>
-                <div className="row page_header">
-                    <div className="three columns header_title start-column">Spell Name</div>
-                    <div className="three columns header_title">Schools</div>
-                    <div className="six columns header_title">Summary</div>
+                <div className="spells-grid">
+                    <div className="spellname">Spell Name</div>
+                    <div className="spellschools">Schools</div>
+                    <div className="spelltypes">Types</div>
+                    <div className="spellsummary">Summary</div>
                 </div>
-                {/*end Spell List Header*/}
                 {this.createSpellList()}
+                {/*end Spell List Header*/}
+
             </span>
         );
     }
