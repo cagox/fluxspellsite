@@ -18,25 +18,9 @@ class SpellList extends React.Component {
         super(props)
 
         this.state = {
-            spells: null
+            spells: null,
+            school_id: this.props.school_id
         };
-        let spellsURI = "";
-
-        if (this.props.school_id === "all") {
-            spellsURI = this.props.apiroot + "/spells";
-        }
-        else {
-            spellsURI = this.props.apiroot + "/schools/" + this.props.school_id + "/spells";
-        }
-
-        axios.get(spellsURI).then((spellList) => {
-
-            this.setState({
-                    spells: spellList.data
-                }
-            )
-        });
-
 
     }
 
@@ -62,6 +46,24 @@ class SpellList extends React.Component {
     }
 
     render() {
+        let spellsURI = "";
+
+        if (this.props.school_id === "all") {
+            spellsURI = this.props.apiroot + "/spells";
+        }
+        else {
+            spellsURI = this.props.apiroot + "/schools/" + this.state.school_id + "/spells";
+        }
+
+        axios.get(spellsURI).then((spellList) => {
+
+            this.setState({
+                    spells: spellList.data
+                }
+            )
+        });
+
+
         return(
             <span>
                 <div className="header-grid">

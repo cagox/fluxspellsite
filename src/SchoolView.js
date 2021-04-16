@@ -7,15 +7,19 @@ class SchoolView extends React.Component {
         super(props);
 
         this.state = {
-            description: ""
+            description: "",
         };
 
-        axios.get(this.props.apiroot+"/schools/"+this.props.school_id).then((school) => {
-            this.setState({description: school.data.description})});
+
 
     }
 
     render() {
+        axios.get(this.props.apiroot+"/schools/"+this.props.school_id).then((school) => {
+            this.setState({
+                description: school.data.description,
+                school_id: school.data.school_id
+            })});
         return(
             <span>
                 <div className="row">&nbsp;</div>
