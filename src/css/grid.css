@@ -112,3 +112,29 @@
 }
 
 
+.school-summary-grid {
+    max-width: 960px;
+    background-color: #000000; /* 55AA55 */
+    margin: auto;
+    display: grid;
+    grid-gap: 5px;
+    display: grid;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 0px;
+    grid-template-columns: 3f 4f 3f;
+}
+
+.summary-spacer {
+    padding: 5px;
+    background-color: #004400;
+}
+
+.summary-box {
+    padding: 5px;
+    background-color: #004400;
+    text-size: 1.2em;
+    border 3px solid #00FF00;   
+}
+
