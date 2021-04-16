@@ -22,13 +22,11 @@ class SchoolView extends React.Component {
             })});
         return(
             <span>
-                <div className="row">&nbsp;</div>
-                <div className="row">
-                    <div className="four columns">&nbsp;</div>
-                    <div className="four columns spellbox">{this.state.description}</div>
-                    <div className="four columns">&nbsp;</div>
+                <div className="school-summary-grid">
+                    <div className="summary-spacer">&nbsp;</div>
+                    <div className="summary-box">{this.state.description}</div>
+                    <div className="summary-spacer">&nbsp;</div>
                 </div>
-                <div className="row page_header">&nbsp;</div>
                 <SpellList apiroot={this.props.apiroot} school_id={this.props.school_id} updateState={this.props.updateState} />
             </span>
         );
