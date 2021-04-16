@@ -7,7 +7,7 @@ class SchoolURL extends React.Component {
         let new_title = "School of " + this.props.name;
 
         return(
-            <button className="link" onClick={() => this.props.updateState({page: "schoolView", school_id: this.props.school_id, header_title: new_title})}><span>{this.props.name}&nbsp; </span></button>
+            <button className="link" onClick={() => this.props.updateState({page: "schoolView", school_id: this.props.school_id, header_title: new_title})}><div className="school-item">{this.props.name}</div></button>
         );
     }
 }
@@ -23,33 +23,52 @@ class SchoolsHeader extends React.Component {
             schools: null
         };
 
-        axios.get(this.props.apiroot+"/schools/").then((schoollist) => {
+        axios.get(this.props.apiroot + "/schools/").then((schoollist) => {
             this.setState({
                     schools: schoollist.data
-            }
+                }
             )
         });
     }
 
-    render(){
-        if(this.state.schools === null) {
-            return(
+
+    render() {
+        if (this.state.schools === null) {
+            return (
                 <div className="schools"><a href="/">Top</a>&nbsp;</div>
             );
         }
 
-        return(
-            <div className="schools page_header">
-                    <a href="/">Top</a>&nbsp;
-                    {this.state.schools.map((item) => <SchoolURL updateState={this.props.updateState} key={item.school_id}  school_id={item.school_id} name={item.name} apiroot={this.props.apiroot} viewschool={this.props.viewschool}/>)}
-            </div>
+        return (
+            <span>
+                <div className="header-grid">
+                    <div className="header">Schools</div>
+                </div>
+                <div className="schools-grid">
+                        <div className="school-item"><a href="/">Top</a></div>
+                    {this.state.schools.map((item) => <SchoolURL updateState={this.props.updateState}
+                                                                 key={item.school_id} school_id={item.school_id}
+                                                                 name={item.name} apiroot={this.props.apiroot}
+                                                                 viewschool={this.props.viewschool}/>)}
+                    {this.getSpacersFor(this.state.schools.length+1)}
+                </div>
+                {/*end schools-grid*/}
+            </span> /*TODO: Add code to count schools (+1 for top) and then do spacers = count%5, and create that many blank spacers. */
         );
-
-    /* render(){
-        return(
-            <SchoolURL name="Arcane" school_id="10" />
-        ); */
     }
+
+    getSpacersFor(count) {
+        let spacersNeeded = 5-(count%5);
+        if (spacersNeeded === 0) {
+            return
+        }
+        var spacers = new Array(spacersNeeded)
+        for(let i = 0; i < spacersNeeded; i++) {
+            spacers[i] = <div className="school-item">&nbsp;</div>;
+        }
+        return spacers;
+    }
+
 
 
 

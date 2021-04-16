@@ -1,92 +1,114 @@
-.container {
-    position: relative;
-    width: 100%;
-    max-width: 960px;
-    margin: auto;
-    padding: 0px; /*0 20px;*/
-    box-sizing: border-box;
-}
-
-.contentblock {
-    background-color: #AAAAAA;
-    min-height: 80em;
-}
-
-
-
-/*
- * First we need the basic header grid.
- * This will include the the page title and the list of schools.
-*/
-
 .header-grid {
+    max-width: 960px;
+    background-color: #000000; /* 55AA55 */
+    margin: auto;
     display: grid;
-    grid-gap: 10px;
-    padding: 10px;
-    background-color: #AAAAAA;
-    grid-template-areas:
-        'header header header header header header header header header header header header'
-        'schools schools schools schools schools schools schools schools schools schools schools schools'
+    grid-gap: 5px;
+    display: grid;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 0px;
 }
+
 
 .header {
-    grid-area: header;
-    font-height: 1.5em;
+    width: 100%;
+    background-color: #004400;
     text-align: center;
-    background-color: #101010;
+    font-size: 1.5em;
 }
 
-.schools {
-    grid-area: schools;
-    font-height: 1.2em;
-    text-align: center;
-    background-color: #101010;
-    padding: 5px;
-}
 
-.spells-grid {
+
+.spell-header-grid {
+    max-width: 960px;
+    background-color: #000000;
+    margin: auto;
     display: grid;
-    grid-gap: 10px;
+    grid-gap: 5px;
+    display: grid;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    grid-template-columns: 3fr 2fr 2fr 4fr;
+}
+
+.spell-grid {
+    max-width: 960px;
+    background-color: #000000;
+    margin: auto;
+    display: grid;
+    grid-row-gap: 5px;
+    grid-column-gap: 0px;
+    display: grid;
+    padding-top: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    grid-template-columns: 3fr 2fr 2fr 4fr;
+}
+
+
+.spell-header-item {
+    font-size: 1.5em;
+    background-color: #004400;
+    padding-left: 5px;
+    pagging-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 0px;
+
+}
+
+.spell-item {
+    background-color: #004400;
+    padding-left: 5px;
+}
+
+
+.schools-grid {
+    display: grid;
+    max-width: 960px;
+    background-color: #000000;
+    margin: auto;
+    grid-gap: 0px;
+    /*
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-bottom: 0px;
+     */
+    padding: 0px;
+    grid-template-columns: auto auto auto auto auto;
+    align-items: center;
+    border: 2px solid #00FF00;
+
+}
+
+.school-item {
     padding: 5px;
-    background-color: #101010;
-    text-align: left;
-    word-wrap: break-word;
-    grid-template-areas:
-        'auto auto auto auto auto auto auto auto auto auto auto auto'
-
+    background-color: #004400;
+    text-align: center;
+    text-size: 1.2em;
 }
 
 
-.spellname {
-    grid-area: spellname;
-    word-wrap: break-word;
-    column-width: 15em;
-
-    grid-column-start: 1;
-    grid-column-end: 4;
+.footer-grid {
+    max-width: 960px;
+    background-color: #000000;
+    margin: auto;
+    display: grid;
+    grid-gap: 5px;
+    display: grid;
+    padding: 10px;
+    grid-template-columns: auto auto auto auto auto;
 }
 
-.spellschools {
-    grid-area: spellschools;
-    word-wrap: break-word;
-    grid-column-start: 4;
-    grid-column-end: 6;
-    text-align: left;
-    column-width: 12em;
+.footer-item {
+    text-align: center;
+    background-color: #004400;
+    font-size: 0.75em;
 }
 
-.spelltypes {
-    grid-area: spelltypes;
-    word-wrap: break-word;
-    grid-column-start: 6;
-    grid-column-end: 8;
-    column-width: 10em;
-}
 
-.spellsummary {
-    grid-area: spellsummary;
-    word-wrap: break-word;
-    grid-column-start: 8;
-    grid-column-end: 13;
-    column-width: 20em;
-}

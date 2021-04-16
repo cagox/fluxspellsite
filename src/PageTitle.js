@@ -4,10 +4,8 @@ class PageTitle extends React.Component {
 
     render() {
         return(
-            <div className="header page_header">
-                <div className="twelve columns header_title">
-                    <span>{this.props.text}</span>
-                </div>
+            <div className="header-grid">
+                <div className="header">{this.props.text}</div>
             </div>
         );
     }

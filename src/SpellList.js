@@ -6,7 +6,7 @@ class SpellURL extends React.Component {
         let new_title = "Spell: " + this.props.name;
 
         return(
-            <button className="link" onClick={() => this.props.updateState({page: "spellView", spell_id: this.props.spell_id, header_title: new_title})}><span>{this.props.name}</span></button>
+            <button className="link" onClick={() => this.props.updateState({page: "spellView", spell_id: this.props.spell_id, header_title: new_title})}><div className="spell-item">{this.props.name}</div></button>
         );
     }
 }
@@ -29,8 +29,6 @@ class SpellList extends React.Component {
             spellsURI = this.props.apiroot + "/schools/" + this.props.school_id + "/spells";
         }
 
-        console.log("spellsURI: " + spellsURI);
-
         axios.get(spellsURI).then((spellList) => {
 
             this.setState({
@@ -50,11 +48,11 @@ class SpellList extends React.Component {
         return(
             this.state.spells.map(
                 (item) => (
-                    <div className="spells-grid">
-                        <div className="spellname"><SpellURL spell_id={item.spell_id} name={item.name} updateState={this.props.updateState} /></div>
-                        <div className="spellschools">{item.schools.map((school) => (<span>{school.name}&nbsp; </span>))}</div>
-                        <div className="spelltypes">TYPES</div>
-                        <div className="spellsummary">{item.summary}</div>
+                    <div className="spell-grid">
+                        <div className="spell-item"><SpellURL spell_id={item.spell_id} name={item.name} updateState={this.props.updateState} /></div>
+                        <div className="spell-item">{item.schools.map((school) => (<span>{school.name}&nbsp; </span>))}</div>
+                        <div className="spell-item">TYPES</div>
+                        <div className="spell-item">{item.summary}</div>
                     </div>
                 )
             )
@@ -66,16 +64,16 @@ class SpellList extends React.Component {
     render() {
         return(
             <span>
-                {/*Spell List Header*/}
-                <div className="spells-grid page_header">
-                    <div className="spellname">Spell Name</div>
-                    <div className="spellschools">Schools</div>
-                    <div className="spelltypes">Types</div>
-                    <div className="spellsummary">Summary</div>
+                <div className="header-grid">
+                    <div className="header">Spells</div>
+                </div>
+                <div className="spell-header-grid spell-header">
+                    <div className="spell-header-item">Spell Name</div>
+                    <div className="spell-header-item">Schools</div>
+                    <div className="spell-header-item">Types</div>
+                    <div className="spell-header-item">Summary</div>
                 </div>
                 {this.createSpellList()}
-                {/*end Spell List Header*/}
-
             </span>
         );
     }

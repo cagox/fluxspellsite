@@ -7,11 +7,7 @@ import './css/base.css';
 import './css/linkbutton.css';
 
 ReactDOM.render(
-    <div>
-        {/* Possibly add header here */}
-        <App />
-        {/* Add footer here */}
-    </div>
+    <App />
     ,
     document.getElementById('root')
 );
