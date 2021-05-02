@@ -1,14 +1,18 @@
 import React from 'react';
+import {useEffect} from 'react';
 
-class PageTitle extends React.Component {
+function PageTitle(props) {
 
-    render() {
-        return(
-            <div className="header-grid">
-                <div className="header">{this.props.text}</div>
-            </div>
-        );
-    }
+    useEffect(() => {document.title = props.text;}, [props.text]);
+
+    return(
+        <div className="header-grid">
+            <div className="header">{props.text}</div>
+        </div>
+    );
+
 }
+
+
 
 export default PageTitle;

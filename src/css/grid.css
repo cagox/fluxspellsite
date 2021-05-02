@@ -41,7 +41,7 @@
     margin: auto;
     display: grid;
     grid-row-gap: 5px;
-    grid-column-gap: 0px;
+    grid-column-gap: 5px;
     display: grid;
     padding-top: 0px;
     padding-right: 5px;
@@ -53,17 +53,17 @@
 
 .spell-header-item {
     font-size: 1.5em;
-    background-color: #004400;
-    padding-left: 5px;
+    /*background-color: #004400;*/
+    /* padding-left: 5px; */
     pagging-right: 5px;
     padding-top: 5px;
-    padding-bottom: 0px;
+    padding-bottom: 5px;
 
 }
 
 .spell-item {
-    background-color: #004400;
-    padding-left: 5px;
+    /*background-color: #004400;*/
+    /* padding-left: 5px; */
 }
 
 
@@ -73,12 +73,6 @@
     background-color: #000000;
     margin: auto;
     grid-gap: 0px;
-    /*
-    padding-top: 5px;
-    padding-right: 5px;
-    padding-left: 5px;
-    padding-bottom: 0px;
-     */
     padding: 0px;
     grid-template-columns: auto auto auto auto auto;
     align-items: center;
@@ -88,7 +82,7 @@
 
 .school-item {
     padding: 5px;
-    background-color: #004400;
+    /* background-color: #004400; */
     text-align: center;
     text-size: 1.2em;
 }
@@ -127,17 +121,17 @@
 
 .summary-spacer-start {
     padding: 5px;
-    background-color: #004400;
+    /* background-color: #004400; */
 }
 
 .summary-spacer-end {
     padding: 5px;
-    background-color: #004400;
+    /* background-color: #004400; */
 }
 
 .summary-box {
     padding: 5px;
-    background-color: #004400;
+    /* background-color: #004400; */
     text-size: 1.2em;
     border: 3px solid #00FF00;
 }

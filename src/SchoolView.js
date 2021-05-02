@@ -1,37 +1,28 @@
 import React from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 import SpellList from './SpellList.js';
 
-class SchoolView extends React.Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            description: "",
-        };
+function SchoolView(props){
+    const [description, setDescription] = useState("");
 
+    useEffect( () => {
+        axios.get(props.apiroot+"/schools/"+props.school_id).then((school) => {setDescription(school.data.description)});
+    });
 
-
-    }
-
-    render() {
-        axios.get(this.props.apiroot+"/schools/"+this.props.school_id).then((school) => {
-            this.setState({
-                description: school.data.description,
-                school_id: school.data.school_id
-            })});
-        return(
-            <span>
+    return(
+        <span>
                 <div className="school-summary-grid">
-                    <div className="summary-spacer">&nbsp;</div>
-                    <div className="summary-box">{this.state.description}</div>
-                    <div className="summary-spacer">&nbsp;</div>
+                    <div className="summary-spacer-start">&nbsp;</div>
+                    <div className="summary-box">{description}</div>
+                    <div className="summary-spacer-end">&nbsp;</div>
                 </div>
-                <SpellList apiroot={this.props.apiroot} school_id={this.props.school_id} updateState={this.props.updateState} />
+                <SpellList apiroot={props.apiroot} school_id={props.school_id} updatePage={props.updatePage}
+                           updateSchool={props.updateSchool} updateSpell={props.updateSpell}
+                           updateHeaderTitle={props.updateHeaderTitle} updateType={props.updateType} />
             </span>
-        );
-    }
-
+    );
 }
 
 
