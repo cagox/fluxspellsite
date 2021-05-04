@@ -1,25 +1,29 @@
 import React from 'react';
-import {useState, useEffect} from 'react';
+import {useContext, useState, useEffect} from 'react';
+import {AppContext} from './App.js';
 import axios from 'axios';
 
 
 
 function SchoolURL(props){
+    const context = useContext(AppContext);
     let new_title = "School of " + props.name;
+    const clickhandler = () => {context.setPage("schoolView"); context.setSchool(props.school_id); context.setTitle(new_title); console.log("Clicked on "+props.name);}
 
     return(
-        <button className="link" key={props.name} onClick={() => {props.updatePage("schoolView"); props.updateSchool(props.school_id); props.updateHeaderTitle(new_title);}}><div className="school-item">{props.name}</div></button>
+        <button className="link" key={props.school_id} onClick={clickhandler}><div className="school-item">{props.name}</div></button>
     );
 }
 
 function SchoolsHeader(props){
+    const context = useContext(AppContext)
     const [schools, setSchools] = useState(null)
 
     useEffect(() => {
-        axios.get(props.apiroot + "/schools/").then((schoollist) => {
+        axios.get(context.apiroot + "/schools/").then((schoollist) => {
             setSchools(schoollist.data)
         });
-    }, [props.apiroot]);
+    }, [context.apiroot]);
 
     if (schools === null) {
         return (
@@ -43,14 +47,11 @@ function SchoolsHeader(props){
                 </div>
                 <div className="schools-grid">
                         <div className="school-item"><a href="/">Top</a></div>
-                    {schools.map((item) => <SchoolURL  updatePage={props.updatePage} updateSchool={props.updateSchool} updateHeaderTitle={props.updateHeaderTitle}
-                                                       key={item.school_id} school_id={item.school_id}
-                                                       name={item.name} apiroot={props.apiroot}
-                                                       />)}
+                    {schools.map((item) => <SchoolURL key={item.school_id} school_id={item.school_id} name={item.name} />)}
                     {getSpacersFor(schools.length+1)}
                 </div>
             {/*end schools-grid*/}
-            </span> /*TODO: Add code to count schools (+1 for top) and then do spacers = count%5, and create that many blank spacers. */
+            </span>
     );
 
 

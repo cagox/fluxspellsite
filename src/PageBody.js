@@ -1,4 +1,6 @@
 import React from 'react';
+import {useContext} from 'react';
+import {AppContext} from './App.js';
 import SpellList from './SpellList.js';
 import SchoolView from './SchoolView.js';
 
@@ -13,18 +15,15 @@ import SchoolView from './SchoolView.js';
 */
 
 function PageBody(props){
-    if (props.page === "indexPage" ) {
+    const context = useContext(AppContext);
+    if (context.page === "indexPage" ) {
         return(
-            <SpellList apiroot={props.apiroot} school_id="all" updatePage={props.updatePage}
-                       updateSchool={props.updateSchool} updateSpell={props.updateSpell}
-                       updateHeaderTitle={props.updateHeaderTitle} updateType={props.updateType} />
+            <SpellList />
         );
     }
 
-    if (props.page === "schoolView") {
-        return (<SchoolView school_id={props.school_id} apiroot={props.apiroot} updatePage={props.updatePage}
-                            updateSchool={props.updateSchool} updateSpell={props.updateSpell}
-                            updateHeaderTitle={props.updateHeaderTitle} updateType={props.updateType} />
+    if (context.page === "schoolView") {
+        return (<SchoolView />
         );
     }
 

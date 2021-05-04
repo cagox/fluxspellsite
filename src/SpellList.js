@@ -1,32 +1,35 @@
 import React from 'react';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
+import {AppContext} from './App.js'
 
 function SpellURL(props) {
+    const context = useContext(AppContext);
         let new_title = "Spell: " + props.name;
 
         return(
-            <button className="link" onClick={() => {props.updatePage("spellView"); props.updateSpell(props.spell_id); props.updateHeaderTitle(new_title);}}><div className="spell-item">{props.name}</div></button>
+            <button className="link" onClick={() => {context.setPage("spellView"); context.setSpell(props.spell_id); context.setTitle(new_title);}}><div className="spell-item">{props.name}</div></button>
         );
 }
 
 
 function SpellList(props) {
+    const context = useContext(AppContext)
     const [spells, setSpells] = useState(null);
 
     useEffect( () => {
         let spellsURI = "";
 
-        if (props.school_id === "all") {
-            spellsURI = props.apiroot + "/spells";
+        if (context.school_id === "all") {
+            spellsURI = context.apiroot + "/spells";
         }
         else {
-            spellsURI = props.apiroot + "/schools/" + props.school_id + "/spells";
+            spellsURI = context.apiroot + "/schools/" + context.school_id + "/spells";
         }
 
         axios.get(spellsURI).then((spellList) => {setSpells(spellList.data);});
 
-        }, [props.school_id,props.apiroot]);
+        }, [context.school_id,context.apiroot]);
 
 
     if(spells === null) {
@@ -57,7 +60,7 @@ function SpellList(props) {
             {spells.map(
                 (item) => (
                     <div className="spell-grid" key={item.spell_id} >
-                        <div className="spell-item"><SpellURL spell_id={item.spell_id} name={item.name} updatePage={props.updatePage} updateSpell={props.updateSpell} updateHeaderTitle={props.updateHeaderTitle} /></div>
+                        <div className="spell-item"><SpellURL spell_id={item.spell_id} name={item.name} /></div>
                         <div className="spell-item">{item.schools.map((school) => (<span>{school.name}&nbsp; </span>))}</div>
                         <div className="spell-item">TYPES</div>
                         <div className="spell-item">{item.summary}</div>
