@@ -1,6 +1,5 @@
-import React from 'react';
-import {useContext, useState, useEffect} from 'react';
-import {AppContext} from './App.js';
+import React, {useContext, useState, useEffect} from 'react';
+import {AppContext} from './AppContext.js';
 import axios from 'axios';
 
 
