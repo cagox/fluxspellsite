@@ -1,13 +1,14 @@
-import React from 'react';
-import {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
+import AppContext from './AppContext.js';
 
 function PageTitle(props) {
+    const context = useContext(AppContext);
 
-    useEffect(() => {document.title = props.text;}, [props.text]);
+    useEffect(() => {document.title = context.headerTitle;}, [context.headerTitle]);
 
     return(
         <div className="header-grid">
-            <div className="header">{props.text}</div>
+            <div className="header">{context.headerTitle}</div>
         </div>
     );
 
