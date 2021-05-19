@@ -1,18 +1,9 @@
-import React from 'react';
-import {useContext} from 'react';
-import {AppContext} from './App.js';
+import React, {useContext} from 'react';
+import {AppContext} from './AppContext.js';
 import SpellList from './SpellList.js';
 import SchoolView from './SchoolView.js';
 
 
-
-/*
-    <PageBody
-        page={page} school_id={school_id} spell_id={spell_id} type_id={type_id} apiroot={apiroot}
-        updatePage={props.updatePage} updateSchool={props.updateSchool} updateSpell={props.updateSpell} updateHeaderTitle={props.updateHeaderTitle} updateType={props.updateType}
-    />
-
-*/
 
 function PageBody(props){
     const context = useContext(AppContext);
