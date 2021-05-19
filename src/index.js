@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.js';
+import AppContextProvider from './AppContextProvider.js';
 
 import './css/grid.css';
 import './css/base.css';
 import './css/linkbutton.css';
 
 ReactDOM.render(
-    <App />
+    <AppContextProvider>
+        <App />
+    </AppContextProvider>
     ,
     document.getElementById('root')
 );
