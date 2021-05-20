@@ -7,7 +7,7 @@ import axios from 'axios';
 function SchoolURL(props){
     const context = useContext(AppContext);
     let new_title = "School of " + props.name;
-    const clickhandler = () => {context.setPage("schoolView"); context.setSchool(props.school_id); context.setTitle(new_title); console.log("Clicked on "+props.name);}
+    const clickhandler = () => {context.setPage("schoolView"); context.setSchool(props.school_id); context.setHeaderTitle(new_title); console.log("Clicked on "+props.name);}
 
     return(
         <button className="link" key={props.school_id} onClick={clickhandler}><div className="school-item">{props.name}</div></button>
@@ -17,6 +17,7 @@ function SchoolURL(props){
 function SchoolsHeader(props){
     const context = useContext(AppContext)
     const [schools, setSchools] = useState(null)
+
 
     useEffect(() => {
         axios.get(context.apiroot + "/schools/").then((schoollist) => {
@@ -73,3 +74,4 @@ function SchoolsHeader(props){
 
 
 export default SchoolsHeader;
+

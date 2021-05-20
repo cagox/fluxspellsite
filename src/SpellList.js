@@ -7,7 +7,7 @@ function SpellURL(props) {
         let new_title = "Spell: " + props.name;
 
         return(
-            <button className="link" onClick={() => {context.setPage("spellView"); context.setSpell(props.spell_id); context.setTitle(new_title);}}><div className="spell-item">{props.name}</div></button>
+            <button className="link" onClick={() => {context.setPage("spellView"); context.setSpell(props.spell_id); context.setHeaderTitle(new_title);}}><div className="spell-item">{props.name}</div></button>
         );
 }
 
