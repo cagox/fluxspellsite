@@ -29,7 +29,7 @@ function PageBody(props){
 
     /* Default */
     return(
-        <div>If you are seeing this, the page value was not set properly.</div>
+        <div>If you are seeing this, the page value was not set properly if you see this, pleace contact <a href="mailto:fluxrpg@cagox.net">FluxRPG@cagox.net</a>.</div>
     );
 
 
