@@ -61,7 +61,7 @@ function SpellList(props) {
                     <div className="spell-grid" key={item.spell_id} >
                         <div className="spell-item"><SpellURL spell_id={item.spell_id} name={item.name} /></div>
                         <div className="spell-item">{item.schools.map((school) => (<span>{school.name}&nbsp; </span>))}</div>
-                        <div className="spell-item">TYPES</div>
+                        <div className="spell-item">{item.types.map((type) => (<span>{type.name}&nbsp; </span>))}</div>
                         <div className="spell-item">{item.summary}</div>
                     </div>
                 )
