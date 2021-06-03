@@ -9,7 +9,7 @@ export const AppContextProvider = ({ children }) => {
 	const [spell, setSpell]             = useState("none");
 	const [type, setType]               = useState("all");
 	const [headerTitle, setHeaderTitle] = useState("FluxRPG Spell List");
-	const [apiroot, setApiroot]         = useState("http://localhost:8080/api");
+	/* const [apiroot, setApiroot]         = useState("http://localhost:8080/api"); */
 
 	return (
 		<AppContext.Provider
@@ -19,13 +19,11 @@ export const AppContextProvider = ({ children }) => {
 				spell,
 				type,
 				headerTitle,
-				apiroot,
 				setPage,
 				setSchool,
 				setSpell,
 				setType,
 				setHeaderTitle,
-				setApiroot
 			}}
 		>
 			{children}

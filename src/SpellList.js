@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
 import {AppContext} from './AppContext.js'
+import {apiroot} from './Config';
 
 function SpellURL(props) {
     const context = useContext(AppContext);
@@ -20,10 +21,10 @@ function SpellList(props) {
         let spellsURI = "";
 
         if (context.school === "all") {
-            spellsURI = context.apiroot + "/spells";
+            spellsURI = apiroot + "/spells";
         }
         else {
-            spellsURI = context.apiroot + "/schools/" + context.school + "/spells";
+            spellsURI = apiroot + "/schools/" + context.school + "/spells";
         }
 
         axios.get(spellsURI).then((spellList) => {setSpells(spellList.data);});

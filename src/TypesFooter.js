@@ -5,7 +5,7 @@ import {apiroot} from './Config';
 
 
 
-export function SchoolURL(props){
+export function TypeURL(props){
     const context = useContext(AppContext);
     let new_title = "School of " + props.name;
     const clickhandler = () => {context.setPage("schoolView"); context.setSchool(props.school_id); context.setHeaderTitle(new_title); console.log("Clicked on "+props.name);}
@@ -15,7 +15,7 @@ export function SchoolURL(props){
     );
 }
 
-function SchoolsHeader(props){
+function TypesFooter(props){
     const [schools, setSchools] = useState(null)
 
 

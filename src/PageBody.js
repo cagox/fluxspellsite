@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {AppContext} from './AppContext.js';
 import SpellList from './SpellList.js';
 import SchoolView from './SchoolView.js';
-
+import SpellView from './SpellView';
 
 
 function PageBody(props){
@@ -16,6 +16,10 @@ function PageBody(props){
     if (context.page === "schoolView") {
         return (<SchoolView />
         );
+    }
+
+    if(context.page === "spellView") {
+        return (<SpellView />);
     }
 
     /*

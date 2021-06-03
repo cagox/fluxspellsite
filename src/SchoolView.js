@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import axios from 'axios';
 import SpellList from './SpellList.js';
 import AppContext from './AppContext.js';
-
+import {apiroot} from './Config';
 
 function SchoolView(){
     
@@ -10,7 +10,7 @@ function SchoolView(){
     const [description, setDescription] = useState("");
 
     useEffect( () => {
-        axios.get(context.apiroot+"/schools/"+context.school).then((school) => {setDescription(school.data.description)});
+        axios.get(apiroot+"/schools/"+context.school).then((school) => {setDescription(school.data.description)});
     });
 
     return(
